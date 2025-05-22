@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://gnphhu466vmq"]
+
+[ext_resource type="Script" uid="uid://gxtyminbk3p4" path="res://job_panel.gd" id="1_4aolq"]
+
+[node name="JobPanel" type="PanelContainer"]
+offset_left = 78.0
+offset_top = 111.0
+offset_right = 490.0
+offset_bottom = 430.0
+script = ExtResource("1_4aolq")
+
+[node name="JobPanelContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelTitle" type="Label" parent="JobPanelContainer"]
+layout_mode = 2
+text = "Gather"
+
+[node name="PanelHeaders" type="HBoxContainer" parent="JobPanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillHeader" type="Label" parent="JobPanelContainer/PanelHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Skill"
+
+[node name="JobHeader" type="Label" parent="JobPanelContainer/PanelHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Job"
+
+[node name="ActionHeader" type="Label" parent="JobPanelContainer/PanelHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action"

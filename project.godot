@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="IdleSmithing"
+run/main_scene="uid://bqq4ayo252q7f"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*res://event_bus.gd"
+Globals="*res://globals.gd"
 
 [editor]
 

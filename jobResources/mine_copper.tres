@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="job_data" load_steps=3 format=3 uid="uid://bvynffo78jb1x"]
+
+[ext_resource type="Script" uid="uid://bfr4o5ku5bpgl" path="res://jobResources/job_data.gd" id="1_rkhfa"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_274jx"]
+specular_color = Color(0.925552, 0.489657, 0.102515, 1)
+
+[resource]
+script = ExtResource("1_rkhfa")
+job_name = "Mine Copper"
+job_icon = SubResource("CanvasTexture_274jx")
+job_difficulty = 30
+add_to_inventory = "Copper"

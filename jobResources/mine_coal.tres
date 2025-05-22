@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="job_data" load_steps=3 format=3 uid="uid://c8bo5kibu00m5"]
+
+[ext_resource type="Texture2D" uid="uid://cwmhhu70ncgrm" path="res://jobResources/coal.png" id="1_0hcay"]
+[ext_resource type="Script" uid="uid://bfr4o5ku5bpgl" path="res://jobResources/job_data.gd" id="1_b28um"]
+
+[resource]
+script = ExtResource("1_b28um")
+job_name = "Mine Coal"
+job_icon = ExtResource("1_0hcay")
+job_difficulty = 5
+add_to_inventory = "Coal"

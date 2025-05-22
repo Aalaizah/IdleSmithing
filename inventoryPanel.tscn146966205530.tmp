@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd80hdi8wp1m"]
+
+[ext_resource type="Script" uid="uid://bwxxgdw5h7bng" path="res://inventory_panel.gd" id="1_n5erp"]
+
+[node name="InventoryPanel" type="PanelContainer"]
+offset_left = 578.0
+offset_top = 109.0
+offset_right = 990.0
+offset_bottom = 428.0
+script = ExtResource("1_n5erp")
+
+[node name="InventoryPanelContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PanelTitle" type="Label" parent="InventoryPanelContainer"]
+layout_mode = 2
+text = "Gather"
+horizontal_alignment = 1
+
+[node name="PanelHeaders" type="HBoxContainer" parent="InventoryPanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SkillHeader" type="Label" parent="InventoryPanelContainer/PanelHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Item"
+
+[node name="JobHeader" type="Label" parent="InventoryPanelContainer/PanelHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Amount"

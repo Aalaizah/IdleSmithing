@@ -1,0 +1,8 @@
+class_name job_data
+
+enum job_difficulty_levels {EASY = 5, MEDIUM = 60, HARD = 120, VERYHARD = 240}
+
+@export var job_name: String
+@export var job_icon: Texture2D
+@export var job_difficulty: job_difficulty_levels = job_difficulty_levels.EASY
+@export var add_to_inventory: String
