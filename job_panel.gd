@@ -47,7 +47,7 @@ func addJobToPanel(job: String):
 	timers.set(toAdd.job_name, skillTimer)
 	skillProgress.add_child(skillTimer)
 	skillContainer.add_child(skillProgress)
-	get_node("JobPanelContainer").add_child(skillContainer)
+	get_node("JobMarginContainer/JobPanelContainer").add_child(skillContainer)
 	
 	
 func doNowPressed(jobName):
@@ -58,9 +58,13 @@ func queuePresseed(jobName):
 
 func startTimer(jobName):
 	var activeTimer = timers.get(jobName)
+	activeTimer.name = jobName
 	Globals.activeTimerProgressBar = activeTimer.get_parent()
 	activeTimer.one_shot = true
-	activeTimer.start(Globals.allJobs.get(jobName).job_difficulty)
+	if activeTimer.paused == true:
+		activeTimer.set_paused(false)
+	else:
+		activeTimer.start(Globals.allJobs.get(jobName).job_difficulty)
 	Globals.activeTimerProgressBar.max_value = activeTimer.wait_time
 	Globals.activeTimer = activeTimer
 	

@@ -3,34 +3,41 @@
 [ext_resource type="Script" uid="uid://gxtyminbk3p4" path="res://job_panel.gd" id="1_4aolq"]
 
 [node name="JobPanel" type="PanelContainer"]
-offset_left = 78.0
-offset_top = 111.0
-offset_right = 490.0
-offset_bottom = 430.0
+offset_left = 45.0
+offset_top = 110.0
+offset_right = 445.0
+offset_bottom = 410.0
 script = ExtResource("1_4aolq")
 
-[node name="JobPanelContainer" type="VBoxContainer" parent="."]
+[node name="JobMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="JobPanelContainer" type="VBoxContainer" parent="JobMarginContainer"]
 layout_mode = 2
 
-[node name="PanelTitle" type="Label" parent="JobPanelContainer"]
+[node name="PanelTitle" type="Label" parent="JobMarginContainer/JobPanelContainer"]
 layout_mode = 2
 text = "Gather"
+horizontal_alignment = 1
 
-[node name="PanelHeaders" type="HBoxContainer" parent="JobPanelContainer"]
+[node name="PanelHeaders" type="HBoxContainer" parent="JobMarginContainer/JobPanelContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="SkillHeader" type="Label" parent="JobPanelContainer/PanelHeaders"]
+[node name="SkillHeader" type="Label" parent="JobMarginContainer/JobPanelContainer/PanelHeaders"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Skill"
+text = "Skill     "
 
-[node name="JobHeader" type="Label" parent="JobPanelContainer/PanelHeaders"]
+[node name="JobHeader" type="Label" parent="JobMarginContainer/JobPanelContainer/PanelHeaders"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Job"
 
-[node name="ActionHeader" type="Label" parent="JobPanelContainer/PanelHeaders"]
+[node name="ActionHeader" type="Label" parent="JobMarginContainer/JobPanelContainer/PanelHeaders"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Action"

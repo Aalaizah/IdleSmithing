@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhfhsij20a2qy"]
+
+[ext_resource type="Script" uid="uid://byoetcetfjwn0" path="res://action_queue_panel.gd" id="1_f1y5t"]
+
+[node name="ActionQueuePanel" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 800.0
+offset_top = 110.0
+offset_right = -52.0
+offset_bottom = -238.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f1y5t")
+
+[node name="ActionMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="ActionPanelContainer" type="VBoxContainer" parent="ActionMarginContainer"]
+layout_mode = 2
+
+[node name="PanelTitle" type="Label" parent="ActionMarginContainer/ActionPanelContainer"]
+layout_mode = 2
+text = "Action Queue"
+horizontal_alignment = 1
+
+[node name="PanelHeaders" type="HBoxContainer" parent="ActionMarginContainer/ActionPanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ActionNameHeader" type="Label" parent="ActionMarginContainer/ActionPanelContainer/PanelHeaders"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action"
+
+[node name="RemoveHeader" type="Label" parent="ActionMarginContainer/ActionPanelContainer/PanelHeaders"]
+layout_mode = 2
+text = "Remove"

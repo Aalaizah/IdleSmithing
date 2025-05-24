@@ -4,7 +4,7 @@ func _ready():
 	EventBus.inventory_increased.connect(addItemToInventoryPanel)
 
 func addItemToInventoryPanel(item: String):
-	var nodePath = "InventoryPanelContainer/" + item
+	var nodePath = "InventoryMarginContainer/InventoryPanelContainer/" + item
 	if get_node_or_null(nodePath) != null:
 		var itemCountNodePath = nodePath + "/" + item + "HBox/ItemCount"
 		var itemCount = get_node(itemCountNodePath)
@@ -30,4 +30,4 @@ func addItemToInventoryPanel(item: String):
 		#jobLabel.text = toAdd.job_name
 		itemCountLabel.size_flags_horizontal = Control.SIZE_EXPAND
 		itemHBox.add_child(itemCountLabel)
-		get_node("InventoryPanelContainer").add_child(itemContainer)
+		get_node("InventoryMarginContainer/InventoryPanelContainer").add_child(itemContainer)
