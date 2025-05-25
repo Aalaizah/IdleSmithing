@@ -9,4 +9,4 @@ enum job_type_values {GATHERING, CRAFTING}
 @export var craft_icon: Texture2D
 @export var job_difficulty: job_difficulty_levels = job_difficulty_levels.EASY
 @export var job_type: job_type_values = job_type_values.CRAFTING
-@export var damage_amount: int
+@export var related_dungeon: String

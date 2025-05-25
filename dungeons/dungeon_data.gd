@@ -10,3 +10,4 @@ enum job_type_values {GATHERING, CRAFTING, ADVENTURING}
 @export var add_to_inventory: String
 @export var max_health: int
 var current_health: int = max_health
+@export var next_dungeon: String

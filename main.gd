@@ -17,12 +17,16 @@ func _process(_delta: float) -> void:
 		Globals.dungeonHealthBars[dungeon].value = Globals.dungeons[dungeon].current_health
 	
 func load_data():
-	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Mine Copper")
-	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Mine Coal")
-	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Smelt Copper Bar")
-	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Copper Dagger")
 	get_node("PanelContainer/VBoxContainer/DungeonPanel").addDungeonToPanel("Dungeon1")
 	get_node("MapPanel").addDungeonToMap("Dungeon1")
+	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Chop Poplar")
+	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Mine Copper")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Craft Poplar Bow")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Smelt Copper Bar")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Copper Dagger")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Copper Sword")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Copper Shield")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Smelt Iron Bar")
 
 func start_now(jobName):
 	var currentJob = Globals.allJobs.get(jobName)

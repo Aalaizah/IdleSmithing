@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_gs3yq")
-job_name = "Dungeon1"
+job_name = "Dungeon3"
 required_items = {
 "Copper Dagger": 1
 }
@@ -12,3 +12,4 @@ job_difficulty = 30
 job_type = 2
 add_to_inventory = "Boss Head"
 max_health = 20
+next_dungeon = ""

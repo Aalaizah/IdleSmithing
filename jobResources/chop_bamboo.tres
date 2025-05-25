@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_sv0ts")
-job_name = "Chop Poplar"
+job_name = "Chop Bamboo"
 job_icon = SubResource("CanvasTexture_646eb")
 job_difficulty = 120
-add_to_inventory = "Poplar"
+add_to_inventory = "Bamboo"
 job_type = 0

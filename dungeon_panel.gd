@@ -1,11 +1,13 @@
 extends PanelContainer
-
-var activeDungeons = []
 var timers = {}
 
 func _ready():
 	var loadDungeons = [
-		load("res://dungeons/dungeon1.tres")
+		load("res://dungeons/dungeon1.tres"),
+		load("res://dungeons/dungeon2.tres"),
+		load("res://dungeons/dungeon3.tres"),
+		load("res://dungeons/dungeon4.tres"),
+		load("res://dungeons/dungeon5.tres")
 	]
 	for dungeon in loadDungeons:
 		Globals.allJobs.set(dungeon.job_name, dungeon)
@@ -13,10 +15,13 @@ func _ready():
 	EventBus.dungeon_started.connect(startTimer)
 		
 func addDungeonToPanel(dungeon_name):
+	Globals.activeDungeons.append(dungeon_name)
 	var toAdd = Globals.allJobs.get(dungeon_name)
-	activeDungeons.append(toAdd)
+	#activeDungeons.append(toAdd)
 	var skillContainer = VBoxContainer.new()
 	skillContainer.name = dungeon_name
+	var tooltipString = createTooltipString(dungeon_name)
+	skillContainer.tooltip_text = tooltipString
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
 	var jobLabel = Label.new()
@@ -71,5 +76,14 @@ func timerEnded(dungeonName):
 	Globals.dungeons[dungeonName].current_health = newHealth
 	Globals.activeTimerProgressBar.value = 0
 	Globals.activeTimerProgressBar = null
+	if Globals.activeDungeons.has(Globals.dungeons[dungeonName].next_dungeon) == false:
+		addDungeonToPanel(Globals.dungeons[dungeonName].next_dungeon)
+		EventBus.dungeon_added.emit(Globals.dungeons[dungeonName].next_dungeon)
 	EventBus.dungeon_finished.emit(dungeonName)
 	EventBus.action_finished.emit(dungeonName)
+
+func createTooltipString(dungeonName) -> String:
+	var toolTipString = "Required Items:\n"
+	for item in Globals.allJobs.get(dungeonName).required_items:
+		toolTipString += item + ": " + str(Globals.allJobs.get(dungeonName).required_items[item]) + "\n"
+	return toolTipString

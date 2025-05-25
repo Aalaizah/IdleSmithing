@@ -5,7 +5,15 @@ var timers = {}
 func _ready():
 	var loadJobs = [
 		load("res://jobResources/mine_copper.tres"),
-		load("res://jobResources/mine_coal.tres")
+		load("res://jobResources/mine_coal.tres"),
+		load("res://jobResources/chop_bamboo.tres"),
+		load("res://jobResources/chop_hickory.tres"),
+		load("res://jobResources/chop_poplar.tres"),
+		load("res://jobResources/chop_rowan.tres"),
+		load("res://jobResources/chop_yew.tres"),
+		load("res://jobResources/mine_adamantite.tres"),
+		load("res://jobResources/mine_iron.tres"),
+		load("res://jobResources/mine_mythril.tres")
 	]
 	for job in loadJobs:
 		Globals.allJobs.set(job.job_name, job)

@@ -6,7 +6,14 @@ var timers = {}
 func _ready():
 	var loadCrafts = [
 		load("res://crafting/copper_dagger.tres"),
-		load("res://crafting/copper_bar.tres")
+		load("res://crafting/copper_bar.tres"),
+		load("res://crafting/adamantite_bar.tres"),
+		load("res://crafting/copper_shield.tres"),
+		load("res://crafting/copper_sword.tres"),
+		load("res://crafting/iron_bar.tres"),
+		load("res://crafting/mythril_bar.tres"),
+		load("res://crafting/poplar_bow.tres"),
+		load("res://crafting/steel_bar.tres")
 	]
 	for craft in loadCrafts:
 		Globals.allJobs.set(craft.job_name, craft)
@@ -15,9 +22,13 @@ func _ready():
 		
 func addCraftToPanel(craftName):
 	var toAdd = Globals.allJobs.get(craftName)
+	if Globals.activeDungeons.has(toAdd.related_dungeon) == true:
+		return
 	activeCrafts.append(toAdd)
 	var skillContainer = VBoxContainer.new()
 	skillContainer.name = craftName
+	var tooltipString = createTooltipString(craftName)
+	skillContainer.tooltip_text = tooltipString
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
 	var skillImage = TextureRect.new()
@@ -72,3 +83,9 @@ func timerEnded(craftName):
 	Globals.activeTimerProgressBar.value = 0
 	Globals.activeTimerProgressBar = null
 	EventBus.action_finished.emit(craftName)
+
+func createTooltipString(craftName) -> String:
+	var toolTipString = "Required Items:\n"
+	for item in Globals.allJobs.get(craftName).required_items:
+		toolTipString += item + ": " + str(Globals.allJobs.get(craftName).required_items[item]) + "\n"
+	return toolTipString

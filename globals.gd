@@ -7,5 +7,6 @@ var jobQueue = []
 var jobTimers = {}
 var inventory = {}
 const maxItemCount = 20
+var activeDungeons = []
 var dungeons = {}
 var dungeonHealthBars = {}

@@ -1,7 +1,7 @@
 extends PanelContainer
 
 func _ready():
-	pass
+	EventBus.dungeon_added.connect(addDungeonToMap)
 	
 func addDungeonToMap(dungeonName):
 	var toAdd = Globals.allJobs.get(dungeonName)

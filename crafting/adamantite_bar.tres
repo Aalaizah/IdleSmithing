@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ahvcn")
-job_name = "Smelt Copper Bar"
+job_name = "Smelt Adamantite Bar"
 add_to_inventory = "Adamantite Bar"
 required_items = {
 "Adamantite": 2,
@@ -15,4 +15,4 @@ required_items = {
 craft_icon = SubResource("CanvasTexture_0v12s")
 job_difficulty = 120
 job_type = 1
-damage_amount = 0
+related_dungeon = ""
