@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqq4ayo252q7f"]
+[gd_scene load_steps=7 format=3 uid="uid://bqq4ayo252q7f"]
 
 [ext_resource type="Script" uid="uid://hbyqixunmpnt" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://gnphhu466vmq" path="res://jobPanel.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cd80hdi8wp1m" path="res://inventoryPanel.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dhfhsij20a2qy" path="res://action_queue_panel.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://belkrcpd830pr" path="res://craftingPanel.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://s0ywr1tk4s6d" path="res://dungeon_panel.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0xm2m")
@@ -16,3 +17,5 @@ script = ExtResource("1_0xm2m")
 [node name="ActionQueuePanel" parent="." instance=ExtResource("4_1bvp3")]
 
 [node name="craftingPanel" parent="." instance=ExtResource("5_lquwl")]
+
+[node name="DungeonPanel" parent="." instance=ExtResource("6_7mycd")]

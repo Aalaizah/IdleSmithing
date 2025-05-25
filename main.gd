@@ -17,6 +17,7 @@ func load_data():
 	get_node("jobPanel").addJobToPanel("Mine Coal")
 	get_node("jobPanel").addJobToPanel("Mine Copper")
 	get_node("craftingPanel").addCraftToPanel("Forge Copper Dagger")
+	get_node("DungeonPanel").addDungeonToPanel("Dungeon1")
 
 func start_now(jobName):
 	var currentJob = Globals.allJobs.get(jobName)
@@ -39,6 +40,15 @@ func start_now(jobName):
 			Globals.jobQueue.push_front(jobName)
 			EventBus.craft_started.emit(jobName)
 			EventBus.queue_increased.emit(jobName)
+	elif currentJob.job_type == 2:
+		var craft_can_be_done = canBeCrafted(jobName)
+		if craft_can_be_done == true:
+			if Globals.jobQueue.size() > 0:
+				Globals.activeTimer.set_paused(true)
+				Globals.jobTimers.set(jobName, Globals.activeTimer)
+			Globals.jobQueue.push_front(jobName)
+			EventBus.dungeon_started.emit(jobName)
+			EventBus.queue_increased.emit(jobName)
 	
 func collect_item(jobName):
 	var itemCollected = Globals.allJobs.get(jobName).add_to_inventory
@@ -54,11 +64,11 @@ func update_queue(jobName):
 	var itemCollected = Globals.allJobs.get(jobName).add_to_inventory
 	var jobType = Globals.allJobs.get(jobName).job_type
 	var queueLength = Globals.jobQueue.size()
-	if jobType == 1:
+	if jobType == 1 or jobType == 2:
 		remove_items_after_crafting(jobName)
 	if check_for_full_inventory(itemCollected):
 		Globals.jobQueue.pop_front()
-		EventBus.queue_decreased.emit(jobName, 0)
+		EventBus.queue_decreased.emit(jobName)
 		queueLength = Globals.jobQueue.size()
 		if queueLength > 0:
 			start_next_job(Globals.jobQueue[0])
@@ -68,6 +78,11 @@ func update_queue(jobName):
 		elif jobType == 1:
 			if canBeCrafted(jobName) == true:
 				EventBus.craft_started.emit(jobName)
+			elif queueLength > 0:
+				start_next_job(Globals.jobQueue[0])
+		elif jobType == 2:
+			if canBeCrafted(jobName) == true:
+				EventBus.dungeon_started.emit(jobName)
 			elif queueLength > 0:
 				start_next_job(Globals.jobQueue[0])
 
@@ -80,7 +95,15 @@ func start_next_job(jobName):
 			EventBus.craft_started.emit(jobName)
 		else:
 			Globals.jobQueue.pop_front()
-			EventBus.queue_decreased.emit(jobName, 0)
+			EventBus.queue_decreased.emit(jobName)
+			if Globals.jobQueue.size() > 0:
+				start_next_job(Globals.jobQueue[0])
+	elif jobType == 2:
+		if canBeCrafted(jobName) == true:
+			EventBus.dungeon_started.emit(jobName)
+		else:
+			Globals.jobQueue.pop_front()
+			EventBus.queue_decreased.emit(jobName)
 			if Globals.jobQueue.size() > 0:
 				start_next_job(Globals.jobQueue[0])
 	

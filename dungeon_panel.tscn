@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://s0ywr1tk4s6d"]
+
+[ext_resource type="Script" uid="uid://d2ui7qo04k7ow" path="res://dungeon_panel.gd" id="1_6xydk"]
+
+[node name="DungeonPanel" type="PanelContainer"]
+offset_left = 477.0
+offset_top = 325.0
+offset_right = 777.0
+offset_bottom = 575.0
+script = ExtResource("1_6xydk")
+
+[node name="DungeonMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="DungeonContainer" type="VBoxContainer" parent="DungeonMarginContainer"]
+layout_mode = 2
+
+[node name="PanelTitle" type="Label" parent="DungeonMarginContainer/DungeonContainer"]
+layout_mode = 2
+text = "Adventuring"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DungeonMarginContainer/DungeonContainer"]
+layout_mode = 2
+
+[node name="Dungeon" type="Label" parent="DungeonMarginContainer/DungeonContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dungeon"
+horizontal_alignment = 1
+
+[node name="Action" type="Label" parent="DungeonMarginContainer/DungeonContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action"
+horizontal_alignment = 1

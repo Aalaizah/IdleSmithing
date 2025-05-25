@@ -41,7 +41,6 @@ func addJobToPanel(job: String):
 	skillContainer.name = job
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
-	var jobContainer = [job, skillContainer]
 	var jobLabel = Label.new()
 	jobLabel.text = toAdd.job_name
 	jobLabel.size_flags_horizontal = Control.SIZE_EXPAND
