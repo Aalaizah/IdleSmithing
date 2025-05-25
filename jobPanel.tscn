@@ -6,7 +6,7 @@
 offset_left = 45.0
 offset_top = 45.0
 offset_right = 445.0
-offset_bottom = 295.0
+offset_bottom = 105.0
 script = ExtResource("1_4aolq")
 
 [node name="JobMarginContainer" type="MarginContainer" parent="."]

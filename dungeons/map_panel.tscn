@@ -1,5 +1,25 @@
-[gd_scene format=3 uid="uid://jyilpbjiajco"]
+[gd_scene load_steps=2 format=3 uid="uid://jyilpbjiajco"]
+
+[ext_resource type="Script" uid="uid://cp2ih7887cl3c" path="res://dungeons/map_panel.gd" id="1_gdd7h"]
 
 [node name="MapPanel" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 400.0
+offset_top = 325.0
+offset_right = 1125.0
+offset_bottom = 385.0
+script = ExtResource("1_gdd7h")
+
+[node name="MapMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MapContainer" type="VBoxContainer" parent="MapMarginContainer"]
+layout_mode = 2
+
+[node name="PanelTitle" type="Label" parent="MapMarginContainer/MapContainer"]
+layout_mode = 2
+text = "Dungeon Health"
+horizontal_alignment = 1

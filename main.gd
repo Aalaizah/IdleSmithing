@@ -12,12 +12,17 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Globals.activeTimerProgressBar != null:
 		Globals.activeTimerProgressBar.value = Globals.activeTimer.wait_time - Globals.activeTimer.time_left
+		
+	for dungeon in Globals.dungeonHealthBars:
+		Globals.dungeonHealthBars[dungeon].value = Globals.dungeons[dungeon].current_health
 	
 func load_data():
-	get_node("jobPanel").addJobToPanel("Mine Coal")
-	get_node("jobPanel").addJobToPanel("Mine Copper")
-	get_node("craftingPanel").addCraftToPanel("Forge Copper Dagger")
-	get_node("DungeonPanel").addDungeonToPanel("Dungeon1")
+	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Mine Copper")
+	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Mine Coal")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Smelt Copper Bar")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Copper Dagger")
+	get_node("PanelContainer/VBoxContainer/DungeonPanel").addDungeonToPanel("Dungeon1")
+	get_node("MapPanel").addDungeonToMap("Dungeon1")
 
 func start_now(jobName):
 	var currentJob = Globals.allJobs.get(jobName)

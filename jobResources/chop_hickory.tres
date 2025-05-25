@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="job_data" load_steps=3 format=3 uid="uid://dwyy8r8wij6kr"]
+
+[ext_resource type="Script" uid="uid://bfr4o5ku5bpgl" path="res://jobResources/job_data.gd" id="1_0fq0y"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_646eb"]
+
+[resource]
+script = ExtResource("1_0fq0y")
+job_name = "Chop Poplar"
+job_icon = SubResource("CanvasTexture_646eb")
+job_difficulty = 15
+add_to_inventory = "Poplar"
+job_type = 0

@@ -5,7 +5,8 @@ var timers = {}
 
 func _ready():
 	var loadCrafts = [
-		load("res://crafting/copper_dagger.tres")
+		load("res://crafting/copper_dagger.tres"),
+		load("res://crafting/copper_bar.tres")
 	]
 	for craft in loadCrafts:
 		Globals.allJobs.set(craft.job_name, craft)

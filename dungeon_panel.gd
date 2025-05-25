@@ -69,7 +69,7 @@ func timerEnded(dungeonName):
 	var dungeonDefeated = Globals.dungeons[dungeonName]
 	var newHealth = dungeonDefeated.current_health - 5
 	Globals.dungeons[dungeonName].current_health = newHealth
-	print(Globals.dungeons[dungeonName].current_health)
 	Globals.activeTimerProgressBar.value = 0
 	Globals.activeTimerProgressBar = null
+	EventBus.dungeon_finished.emit(dungeonName)
 	EventBus.action_finished.emit(dungeonName)

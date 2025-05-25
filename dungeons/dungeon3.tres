@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="dungeon_data" load_steps=2 format=3 uid="uid://bl5vtpf2ytmuy"]
+
+[ext_resource type="Script" uid="uid://dg761e0k4b63i" path="res://dungeons/dungeon_data.gd" id="1_gs3yq"]
+
+[resource]
+script = ExtResource("1_gs3yq")
+job_name = "Dungeon1"
+required_items = {
+"Copper Dagger": 1
+}
+job_difficulty = 30
+job_type = 2
+add_to_inventory = "Boss Head"
+max_health = 20

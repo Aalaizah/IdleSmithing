@@ -11,3 +11,4 @@ job_name = "Mine Copper"
 job_icon = SubResource("CanvasTexture_274jx")
 job_difficulty = 5
 add_to_inventory = "Copper"
+job_type = 0

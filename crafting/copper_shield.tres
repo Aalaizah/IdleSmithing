@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="crafting_data" load_steps=3 format=3 uid="uid://r4ha5s217qg7"]
+[gd_resource type="Resource" script_class="crafting_data" load_steps=3 format=3 uid="uid://c1txs47s73yp2"]
 
-[ext_resource type="Script" uid="uid://dlvotx7i7a335" path="res://crafting/crafting_data.gd" id="1_0v12s"]
+[ext_resource type="Script" uid="uid://dlvotx7i7a335" path="res://crafting/crafting_data.gd" id="1_ja1gb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0v12s"]
 
 [resource]
-script = ExtResource("1_0v12s")
+script = ExtResource("1_ja1gb")
 job_name = "Forge Copper Dagger"
 add_to_inventory = "Copper Dagger"
 required_items = {

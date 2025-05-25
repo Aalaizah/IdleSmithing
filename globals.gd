@@ -8,3 +8,4 @@ var jobTimers = {}
 var inventory = {}
 const maxItemCount = 20
 var dungeons = {}
+var dungeonHealthBars = {}

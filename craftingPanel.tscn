@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://cle5kgi0n3wyy" path="res://crafting_panel.gd" id="1_lc3b1"]
 
 [node name="CraftingPanel" type="PanelContainer"]
-offset_left = 45.0
-offset_top = 325.0
-offset_right = 445.0
-offset_bottom = 575.0
+offset_right = 400.0
+offset_bottom = 60.0
 script = ExtResource("1_lc3b1")
 
 [node name="CraftingMarginContainer" type="MarginContainer" parent="."]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="job_data" load_steps=3 format=3 uid="uid://c8dxoxh304w6b"]
+
+[ext_resource type="Script" uid="uid://bfr4o5ku5bpgl" path="res://jobResources/job_data.gd" id="2_kxtdl"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uo21v"]
+
+[resource]
+script = ExtResource("2_kxtdl")
+job_name = "Mine Adamantite"
+job_icon = SubResource("CanvasTexture_uo21v")
+job_difficulty = 120
+add_to_inventory = "Adamantite"
+job_type = 0

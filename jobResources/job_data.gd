@@ -1,6 +1,6 @@
 class_name job_data
 
-enum job_difficulty_levels {EASY = 5, MEDIUM = 60, HARD = 120, VERYHARD = 240}
+enum job_difficulty_levels {EASY = 5, MEDIUM = 15, HARD = 30, VERYHARD = 60, IMPOSSIBLE = 120}
 enum job_type_values {GATHERING, CRAFTING}
 
 @export var job_name: String

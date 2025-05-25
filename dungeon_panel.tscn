@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://d2ui7qo04k7ow" path="res://dungeon_panel.gd" id="1_6xydk"]
 
 [node name="DungeonPanel" type="PanelContainer"]
-offset_left = 477.0
-offset_top = 325.0
-offset_right = 777.0
-offset_bottom = 575.0
+offset_right = 300.0
+offset_bottom = 60.0
 script = ExtResource("1_6xydk")
 
 [node name="DungeonMarginContainer" type="MarginContainer" parent="."]

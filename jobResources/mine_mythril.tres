@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="job_data" load_steps=3 format=3 uid="uid://bcylr6arroo2q"]
+
+[ext_resource type="Script" uid="uid://bfr4o5ku5bpgl" path="res://jobResources/job_data.gd" id="2_ang6l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1sctr"]
+
+[resource]
+script = ExtResource("2_ang6l")
+job_name = "Mine Coal"
+job_icon = SubResource("CanvasTexture_1sctr")
+job_difficulty = 60
+add_to_inventory = "Mythril"
+job_type = 0

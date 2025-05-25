@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqq4ayo252q7f"]
+[gd_scene load_steps=8 format=3 uid="uid://bqq4ayo252q7f"]
 
 [ext_resource type="Script" uid="uid://hbyqixunmpnt" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://gnphhu466vmq" path="res://jobPanel.tscn" id="2_h2yge"]
@@ -6,16 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://dhfhsij20a2qy" path="res://action_queue_panel.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://belkrcpd830pr" path="res://craftingPanel.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://s0ywr1tk4s6d" path="res://dungeon_panel.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://jyilpbjiajco" path="res://dungeons/map_panel.tscn" id="7_272bh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0xm2m")
-
-[node name="jobPanel" parent="." instance=ExtResource("2_h2yge")]
 
 [node name="InventoryPanel" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="ActionQueuePanel" parent="." instance=ExtResource("4_1bvp3")]
 
-[node name="craftingPanel" parent="." instance=ExtResource("5_lquwl")]
+[node name="MapPanel" parent="." instance=ExtResource("7_272bh")]
 
-[node name="DungeonPanel" parent="." instance=ExtResource("6_7mycd")]
+[node name="PanelContainer" type="ScrollContainer" parent="."]
+offset_left = 15.0
+offset_top = 45.0
+offset_right = 365.0
+offset_bottom = 645.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="jobPanel" parent="PanelContainer/VBoxContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+
+[node name="craftingPanel" parent="PanelContainer/VBoxContainer" instance=ExtResource("5_lquwl")]
+layout_mode = 2
+
+[node name="DungeonPanel" parent="PanelContainer/VBoxContainer" instance=ExtResource("6_7mycd")]
+layout_mode = 2

@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://bwxxgdw5h7bng" path="res://inventory_panel.gd" id="1_n5erp"]
 
 [node name="InventoryPanel" type="PanelContainer"]
-offset_left = 477.0
+offset_left = 400.0
 offset_top = 45.0
-offset_right = 777.0
-offset_bottom = 295.0
+offset_right = 750.0
+offset_bottom = 105.0
 script = ExtResource("1_n5erp")
 
 [node name="InventoryMarginContainer" type="MarginContainer" parent="."]
