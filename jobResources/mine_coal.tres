@@ -9,3 +9,4 @@ job_name = "Mine Coal"
 job_icon = ExtResource("1_0hcay")
 job_difficulty = 5
 add_to_inventory = "Coal"
+job_type = 0

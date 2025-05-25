@@ -1,5 +1,6 @@
 extends PanelContainer
 var currentQueue = {}
+var currentQueueArray = []
 
 func _ready():
 	EventBus.queue_increased.connect(addJobToPanelFront)
@@ -10,7 +11,7 @@ func addJobToPanelFront(job: String):
 	var currentlyQueuedJob = currentQueue.get(job)
 	if currentlyQueuedJob != null:
 		var jobLoc = Globals.jobQueue.find(job)
-		var currentJob = Globals.jobQueue.pop_at(jobLoc)
+		Globals.jobQueue.pop_at(jobLoc)
 		get_node("ActionMarginContainer/ActionPanelContainer").move_child(currentlyQueuedJob, 2)
 		return
 	var toAdd = Globals.allJobs.get(job)
@@ -40,6 +41,7 @@ func addJobToPanel(job: String):
 	skillContainer.name = job
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
+	var jobContainer = [job, skillContainer]
 	var jobLabel = Label.new()
 	jobLabel.text = toAdd.job_name
 	jobLabel.size_flags_horizontal = Control.SIZE_EXPAND
@@ -60,5 +62,5 @@ func removeJobFromPanel(jobName):
 	toBeRemoved.queue_free()
 	
 func removeJobFromPanelButton(jobName):
-	EventBus.job_removed.emit(jobName)
 	removeJobFromPanel(jobName)
+	EventBus.job_removed.emit(jobName)

@@ -4,9 +4,9 @@
 
 [node name="JobPanel" type="PanelContainer"]
 offset_left = 45.0
-offset_top = 110.0
+offset_top = 45.0
 offset_right = 445.0
-offset_bottom = 410.0
+offset_bottom = 295.0
 script = ExtResource("1_4aolq")
 
 [node name="JobMarginContainer" type="MarginContainer" parent="."]
@@ -36,8 +36,10 @@ text = "Skill     "
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Job"
+horizontal_alignment = 1
 
 [node name="ActionHeader" type="Label" parent="JobMarginContainer/JobPanelContainer/PanelHeaders"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Action"
+horizontal_alignment = 1

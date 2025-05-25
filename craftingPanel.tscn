@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://belkrcpd830pr"]
+
+[ext_resource type="Script" uid="uid://cle5kgi0n3wyy" path="res://crafting_panel.gd" id="1_lc3b1"]
+
+[node name="CraftingPanel" type="PanelContainer"]
+offset_left = 45.0
+offset_top = 375.0
+offset_right = 445.0
+offset_bottom = 625.0
+script = ExtResource("1_lc3b1")
+
+[node name="CraftingMarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="CraftingContainer" type="VBoxContainer" parent="CraftingMarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CraftingMarginContainer/CraftingContainer"]
+layout_mode = 2
+text = "Smithing"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CraftingMarginContainer/CraftingContainer"]
+layout_mode = 2
+
+[node name="SkillHeader" type="Label" parent="CraftingMarginContainer/CraftingContainer/HBoxContainer"]
+layout_mode = 2
+text = "Skill     "
+
+[node name="JobHeader" type="Label" parent="CraftingMarginContainer/CraftingContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Job"
+
+[node name="ActionHeader" type="Label" parent="CraftingMarginContainer/CraftingContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action"

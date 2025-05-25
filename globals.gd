@@ -6,4 +6,4 @@ var activeTimerProgressBar: ProgressBar
 var jobQueue = []
 var jobTimers = {}
 var inventory = {}
-const maxItemCount = 5
+const maxItemCount = 20
