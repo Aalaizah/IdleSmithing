@@ -15,4 +15,4 @@ required_items = {
 craft_icon = SubResource("CanvasTexture_0v12s")
 job_difficulty = 120
 job_type = 1
-related_dungeon = ""
+related_dungeon = "Dungeon5"

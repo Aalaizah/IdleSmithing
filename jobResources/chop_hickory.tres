@@ -11,3 +11,4 @@ job_icon = SubResource("CanvasTexture_646eb")
 job_difficulty = 15
 add_to_inventory = "Hickory"
 job_type = 0
+related_dungeon = "Dungeon2"

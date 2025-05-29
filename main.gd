@@ -8,6 +8,7 @@ func _ready() -> void:
 	EventBus.action_queued.connect(add_to_queue)
 	EventBus.action_finished.connect(collect_item)
 	EventBus.job_removed.connect(pause_timer_after_queue_removal)
+	EventBus.dungeon_added.connect(loadNextJobs)
 	
 func _process(_delta: float) -> void:
 	if Globals.activeTimerProgressBar != null:
@@ -139,7 +140,7 @@ func pause_timer_after_queue_removal(jobName):
 		Globals.jobQueue.erase(jobName)
 		return
 	if Globals.jobQueue.size() > 0:
-		update_queue(Globals.jobQueue[0])
+		start_next_job(Globals.jobQueue[0])
 		
 func canBeCrafted(itemName) -> bool:
 	var currentJob = Globals.allJobs.get(itemName)
@@ -148,6 +149,9 @@ func canBeCrafted(itemName) -> bool:
 		if Globals.inventory.has(item):
 			if Globals.inventory[item] >= currentJob.required_items[item]:
 				craft_can_be_done = true
+		else:
+			craft_can_be_done = false
+			return craft_can_be_done
 	return craft_can_be_done
 
 func remove_items_after_crafting(jobName):
@@ -157,3 +161,11 @@ func remove_items_after_crafting(jobName):
 		Globals.inventory.set(item, currentInventory)
 		EventBus.inventory_decreased.emit(item)
 		
+func loadNextJobs(dungeonName):
+	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Chop Hickory")
+	get_node("PanelContainer/VBoxContainer/jobPanel").addJobToPanel("Mine Iron")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Craft Hickory Bow")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Smelt Iron Bar")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Iron Dagger")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Iron Sword")
+	get_node("PanelContainer/VBoxContainer/craftingPanel").addCraftToPanel("Forge Iron Shield")

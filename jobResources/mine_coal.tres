@@ -10,3 +10,4 @@ job_icon = ExtResource("1_0hcay")
 job_difficulty = 30
 add_to_inventory = "Coal"
 job_type = 0
+related_dungeon = "Dungeon3"

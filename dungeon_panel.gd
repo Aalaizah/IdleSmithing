@@ -41,6 +41,7 @@ func addDungeonToPanel(dungeon_name):
 	queueButton.pressed.connect(self.queuePresseed.bind(queueButton.get_meta("job")))
 	buttonsContainer.add_child(queueButton)
 	var skillProgress = ProgressBar.new()
+	skillProgress.show_percentage = false
 	var skillTimer = Timer.new()
 	skillTimer.name = toAdd.job_name + " Timer"
 	skillTimer.set_meta("job", toAdd.job_name)
@@ -76,9 +77,10 @@ func timerEnded(dungeonName):
 	Globals.dungeons[dungeonName].current_health = newHealth
 	Globals.activeTimerProgressBar.value = 0
 	Globals.activeTimerProgressBar = null
-	if Globals.activeDungeons.has(Globals.dungeons[dungeonName].next_dungeon) == false:
-		addDungeonToPanel(Globals.dungeons[dungeonName].next_dungeon)
-		EventBus.dungeon_added.emit(Globals.dungeons[dungeonName].next_dungeon)
+	var nextDungeon = Globals.dungeons[dungeonName].next_dungeon
+	if nextDungeon.is_empty() == false and Globals.activeDungeons.has(nextDungeon) == false:
+		addDungeonToPanel(nextDungeon)
+		EventBus.dungeon_added.emit(nextDungeon)
 	EventBus.dungeon_finished.emit(dungeonName)
 	EventBus.action_finished.emit(dungeonName)
 

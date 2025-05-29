@@ -11,3 +11,4 @@ job_icon = SubResource("CanvasTexture_646eb")
 job_difficulty = 30
 add_to_inventory = "Yew"
 job_type = 0
+related_dungeon = "Dungeon3"

@@ -13,7 +13,11 @@ func _ready():
 		load("res://crafting/iron_bar.tres"),
 		load("res://crafting/mythril_bar.tres"),
 		load("res://crafting/poplar_bow.tres"),
-		load("res://crafting/steel_bar.tres")
+		load("res://crafting/steel_bar.tres"),
+		load("res://crafting/hickory_bow.tres"),
+		load("res://crafting/iron_dagger.tres"),
+		load("res://crafting/iron_shield.tres"),
+		load("res://crafting/iron_sword.tres")
 	]
 	for craft in loadCrafts:
 		Globals.allJobs.set(craft.job_name, craft)
@@ -22,7 +26,7 @@ func _ready():
 		
 func addCraftToPanel(craftName):
 	var toAdd = Globals.allJobs.get(craftName)
-	if Globals.activeDungeons.has(toAdd.related_dungeon) == true:
+	if Globals.activeDungeons.has(toAdd.related_dungeon) == false:
 		return
 	activeCrafts.append(toAdd)
 	var skillContainer = VBoxContainer.new()
@@ -31,10 +35,10 @@ func addCraftToPanel(craftName):
 	skillContainer.tooltip_text = tooltipString
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
-	var skillImage = TextureRect.new()
-	skillImage.size_flags_horizontal = Control.SIZE_EXPAND
-	skillImage.texture = toAdd.craft_icon
-	skillHBox.add_child(skillImage)
+	#var skillImage = TextureRect.new()
+	#skillImage.size_flags_horizontal = Control.SIZE_EXPAND
+	#skillImage.texture = toAdd.craft_icon
+	#skillHBox.add_child(skillImage)
 	var jobLabel = Label.new()
 	jobLabel.text = toAdd.job_name
 	jobLabel.size_flags_horizontal = Control.SIZE_EXPAND
@@ -52,6 +56,7 @@ func addCraftToPanel(craftName):
 	queueButton.pressed.connect(self.queuePresseed.bind(queueButton.get_meta("job")))
 	buttonsContainer.add_child(queueButton)
 	var skillProgress = ProgressBar.new()
+	skillProgress.show_percentage = false
 	var skillTimer = Timer.new()
 	skillTimer.name = toAdd.job_name + " Timer"
 	skillTimer.set_meta("job", toAdd.job_name)

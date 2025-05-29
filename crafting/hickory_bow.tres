@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="crafting_data" load_steps=3 format=3 uid="uid://bivocji4lilwj"]
+
+[ext_resource type="Script" uid="uid://dlvotx7i7a335" path="res://crafting/crafting_data.gd" id="1_hyra1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0v12s"]
+
+[resource]
+script = ExtResource("1_hyra1")
+job_name = "Craft Hickory Bow"
+add_to_inventory = "Hickory Bow"
+required_items = Dictionary[String, int]({
+"Hickory": 5
+})
+craft_icon = SubResource("CanvasTexture_0v12s")
+job_difficulty = 15
+job_type = 1
+related_dungeon = "Dungeon2"

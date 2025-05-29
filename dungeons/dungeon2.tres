@@ -5,11 +5,14 @@
 [resource]
 script = ExtResource("1_2ng3r")
 job_name = "Dungeon2"
-required_items = {
-"Copper Dagger": 1
-}
+required_items = Dictionary[String, int]({
+"Hickory Bow": 1,
+"Iron Dagger": 1,
+"Iron Shield": 1,
+"Iron Sword": 1
+})
 job_difficulty = 15
 job_type = 2
-add_to_inventory = "Boss Head"
-max_health = 20
+add_to_inventory = ""
+max_health = 25
 next_dungeon = ""

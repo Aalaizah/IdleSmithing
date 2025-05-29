@@ -11,3 +11,4 @@ job_icon = SubResource("CanvasTexture_uo21v")
 job_difficulty = 120
 add_to_inventory = "Adamantite"
 job_type = 0
+related_dungeon = "Dungeon5"

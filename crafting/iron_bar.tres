@@ -9,10 +9,9 @@ script = ExtResource("1_2pwwk")
 job_name = "Smelt Iron Bar"
 add_to_inventory = "Iron Bar"
 required_items = Dictionary[String, int]({
-"Coal": 1,
 "Iron": 2
 })
 craft_icon = SubResource("CanvasTexture_0v12s")
 job_difficulty = 15
 job_type = 1
-related_dungeon = ""
+related_dungeon = "Dungeon2"

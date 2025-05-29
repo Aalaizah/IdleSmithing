@@ -1,12 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://jyilpbjiajco"]
+[gd_scene load_steps=4 format=3 uid="uid://jyilpbjiajco"]
 
 [ext_resource type="Script" uid="uid://cp2ih7887cl3c" path="res://dungeons/map_panel.gd" id="1_gdd7h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdd7h"]
+bg_color = Color(0.915175, 0.0882835, 5.77569e-07, 1)
+
+[sub_resource type="Theme" id="Theme_w6w5r"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_gdd7h")
 
 [node name="MapPanel" type="PanelContainer"]
 offset_left = 400.0
 offset_top = 325.0
 offset_right = 1125.0
 offset_bottom = 385.0
+theme = SubResource("Theme_w6w5r")
 script = ExtResource("1_gdd7h")
 
 [node name="MapMarginContainer" type="MarginContainer" parent="."]

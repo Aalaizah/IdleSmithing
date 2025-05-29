@@ -19,13 +19,14 @@ layout_mode = 2
 
 [node name="Panel Title" type="Label" parent="CraftingMarginContainer/CraftingContainer"]
 layout_mode = 2
-text = "Crafting"
+text = "Craft"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CraftingMarginContainer/CraftingContainer"]
 layout_mode = 2
 
 [node name="SkillHeader" type="Label" parent="CraftingMarginContainer/CraftingContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Skill     "
 horizontal_alignment = 1

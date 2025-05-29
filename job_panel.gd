@@ -22,15 +22,17 @@ func _ready():
 
 func addJobToPanel(job: String):
 	var toAdd = Globals.allJobs.get(job)
+	if Globals.activeDungeons.has(toAdd.related_dungeon) == false:
+		return
 	activeJobs.append(toAdd)
 	var skillContainer = VBoxContainer.new()
 	skillContainer.name = job
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
-	var skillImage = TextureRect.new()
-	skillImage.size_flags_horizontal = Control.SIZE_EXPAND
-	skillImage.texture = toAdd.job_icon
-	skillHBox.add_child(skillImage)
+	#var skillImage = TextureRect.new()
+	#skillImage.size_flags_horizontal = Control.SIZE_EXPAND
+	#skillImage.texture = toAdd.job_icon
+	#skillHBox.add_child(skillImage)
 	var jobLabel = Label.new()
 	jobLabel.text = toAdd.job_name
 	jobLabel.size_flags_horizontal = Control.SIZE_EXPAND
@@ -48,6 +50,7 @@ func addJobToPanel(job: String):
 	queueButton.pressed.connect(self.queuePresseed.bind(queueButton.get_meta("job")))
 	buttonsContainer.add_child(queueButton)
 	var skillProgress = ProgressBar.new()
+	skillProgress.show_percentage = false
 	var skillTimer = Timer.new()
 	skillTimer.name = toAdd.job_name + " Timer"
 	skillTimer.set_meta("job", toAdd.job_name)

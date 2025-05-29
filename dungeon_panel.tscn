@@ -19,7 +19,8 @@ layout_mode = 2
 
 [node name="PanelTitle" type="Label" parent="DungeonMarginContainer/DungeonContainer"]
 layout_mode = 2
-text = "Adventuring"
+text = "Adventure
+"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="DungeonMarginContainer/DungeonContainer"]

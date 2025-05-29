@@ -5,6 +5,8 @@ func _ready():
 	EventBus.inventory_decreased.connect(decreaseQuantity)
 
 func addItemToInventoryPanel(item: String):
+	if item.is_empty() == true:
+		return
 	var nodePath = "InventoryMarginContainer/InventoryPanelContainer/" + item
 	if get_node_or_null(nodePath) != null:
 		var itemCountNodePath = nodePath + "/" + item + "HBox/ItemCount"

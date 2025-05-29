@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="crafting_data" load_steps=3 format=3 uid="uid://d2uqta3qykuon"]
+
+[ext_resource type="Script" uid="uid://dlvotx7i7a335" path="res://crafting/crafting_data.gd" id="1_ksi5o"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0v12s"]
+
+[resource]
+script = ExtResource("1_ksi5o")
+job_name = "Forge Iron Shield"
+add_to_inventory = "Iron Shield"
+required_items = Dictionary[String, int]({
+"Iron Bar": 3
+})
+craft_icon = SubResource("CanvasTexture_0v12s")
+job_difficulty = 15
+job_type = 1
+related_dungeon = "Dungeon2"

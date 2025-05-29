@@ -14,4 +14,4 @@ required_items = Dictionary[String, int]({
 craft_icon = SubResource("CanvasTexture_0v12s")
 job_difficulty = 5
 job_type = 1
-damage_amount = 0
+related_dungeon = "Dungeon1"
