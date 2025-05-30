@@ -8,9 +8,9 @@
 script = ExtResource("1_0ehg1")
 job_name = "Smelt Copper Bar"
 add_to_inventory = "Copper Bar"
-required_items = {
+required_items = Dictionary[String, int]({
 "Copper": 5
-}
+})
 craft_icon = SubResource("CanvasTexture_0v12s")
 job_difficulty = 5
 job_type = 1

@@ -1,5 +1,4 @@
 extends PanelContainer
-var currentQueue = {}
 var currentQueueArray = []
 
 func _ready():
@@ -8,15 +7,14 @@ func _ready():
 	EventBus.queue_decreased.connect(removeJobFromPanel)
 
 func addJobToPanelFront(job: String):
-	var currentlyQueuedJob = currentQueue.get(job)
-	if currentlyQueuedJob != null:
+	if currentQueueArray.size() > 0:
+		var currentlyQueuedJob = currentQueueArray[0]
 		var jobLoc = Globals.jobQueue.find(job)
-		Globals.jobQueue.pop_at(jobLoc)
 		get_node("ActionMarginContainer/ActionPanelContainer").move_child(currentlyQueuedJob, 2)
-		return
 	var toAdd = Globals.allJobs.get(job)
 	var skillContainer = VBoxContainer.new()
 	skillContainer.name = job
+	skillContainer.set_meta("job", job)
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
 	var jobLabel = Label.new()
@@ -26,19 +24,19 @@ func addJobToPanelFront(job: String):
 	var removeButton = Button.new()
 	removeButton.text = "Remove"
 	removeButton.set_meta("job", toAdd.job_name)
-	removeButton.pressed.connect(self.removeJobFromPanelButton.bind(removeButton.get_meta("job")))
+	removeButton.set_meta("parent", skillContainer)
+	removeButton.pressed.connect(self.removeJobFromPanelButton.bind(removeButton.get_meta("job"), 
+		removeButton.get_meta("parent")))
 	skillHBox.add_child(removeButton)
 	get_node("ActionMarginContainer/ActionPanelContainer").add_child(skillContainer)
-	currentQueue.set(job, skillContainer)
+	currentQueueArray.push_front(skillContainer)
 	get_node("ActionMarginContainer/ActionPanelContainer").move_child(skillContainer, 2)
 	
 func addJobToPanel(job: String):
-	var currentlyQueuedJob = currentQueue.get(job)
-	if currentlyQueuedJob != null:
-		return
 	var toAdd = Globals.allJobs.get(job)
 	var skillContainer = VBoxContainer.new()
 	skillContainer.name = job
+	skillContainer.set_meta("job", job)
 	var skillHBox = HBoxContainer.new()
 	skillContainer.add_child(skillHBox)
 	var jobLabel = Label.new()
@@ -48,18 +46,20 @@ func addJobToPanel(job: String):
 	var removeButton = Button.new()
 	removeButton.text = "Remove"
 	removeButton.set_meta("job", toAdd.job_name)
-	removeButton.pressed.connect(self.removeJobFromPanelButton.bind(removeButton.get_meta("job")))
+	removeButton.set_meta("parent", skillContainer)
+	removeButton.pressed.connect(self.removeJobFromPanelButton.bind(removeButton.get_meta("job"), 
+		removeButton.get_meta("parent")))
 	skillHBox.add_child(removeButton)
 	get_node("ActionMarginContainer/ActionPanelContainer").add_child(skillContainer)
-	currentQueue.set(job, skillContainer)
+	currentQueueArray.append(skillContainer)
 
 func removeJobFromPanel(jobName):
-	var toBeRemoved = currentQueue.get(jobName)
-	var toBeRemovedParent = currentQueue.get(jobName).get_parent()
-	currentQueue.erase(jobName)
-	toBeRemovedParent.remove_child(toBeRemoved)
-	toBeRemoved.queue_free()
+	if currentQueueArray.size() > 0:
+		var parentNode = currentQueueArray[0]
+		if parentNode.get_meta("job") == jobName:
+			parentNode.queue_free()
+			currentQueueArray.pop_front()
 	
-func removeJobFromPanelButton(jobName):
-	removeJobFromPanel(jobName)
+func removeJobFromPanelButton(jobName, parentNode):
+	parentNode.queue_free()
 	EventBus.job_removed.emit(jobName)

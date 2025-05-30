@@ -8,6 +8,19 @@
 
 config_version=5
 
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
 [application]
 
 config/name="IdleSmithing"
@@ -19,8 +32,19 @@ config/icon="res://icon.svg"
 
 EventBus="*res://event_bus.gd"
 Globals="*res://globals.gd"
+Console="*res://addons/console/console.gd"
+SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
+
+[github_to_itch]
+
+config/itch_username=""
+config/itch_project_name=""
